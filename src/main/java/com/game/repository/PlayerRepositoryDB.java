@@ -24,7 +24,7 @@ public class PlayerRepositoryDB implements IPlayerRepository {
         Properties properties = new Properties();
         properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
         properties.put(Environment.URL, "jdbc:mysql://localhost:3306/rpg");
-        properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
+        properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         properties.put(Environment.USER, "root");
         properties.put(Environment.PASS, "admin");
         properties.put(Environment.HBM2DDL_AUTO, "update");
@@ -48,8 +48,8 @@ public class PlayerRepositoryDB implements IPlayerRepository {
     @Override
     public int getAllCount() {
         try (Session session = sessionFactory.openSession()) {
-            Query<Integer> query = session.createNamedQuery("player_getAllCount", Integer.class);
-            return query.uniqueResult();
+            Query<Long> query = session.createNamedQuery("player_getAllCount", Long.class);
+            return Math.toIntExact(query.uniqueResult());
         }
     }
 
