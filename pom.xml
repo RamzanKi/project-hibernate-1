@@ -18,7 +18,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-
 			<dependency>
 				<groupId>net.bytebuddy</groupId>
 				<artifactId>byte-buddy</artifactId>
@@ -68,6 +67,13 @@
 	</dependencyManagement>
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
+		<dependency>
+			<groupId>p6spy</groupId>
+			<artifactId>p6spy</artifactId>
+			<version>3.9.1</version>
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
